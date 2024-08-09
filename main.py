@@ -43,11 +43,11 @@ def show_menu():
         user_input = input("Enter your choice: ")
         if user_input == "1":
             pass
-        elif user_input == "6":
+        elif user_input == "2":
+            pass
+        elif user_input == "3":
             print("\nThakns for wisit")
-        else:
-            print("\nWrong choice !")
-            return show_menu()
+            exit()
     except KeyboardInterrupt:
         return show_menu()
 
@@ -63,8 +63,11 @@ def admin_menu():
         user_input = input("Enter your choice: ")
         if user_input == "1":
             pass
-        elif user_input == "6":
+        elif user_input == "2":
+            pass
+        elif user_input == "3":
             print("\nThakns for wisit")
+            exit()
         else:
             print("\nWrong choice !")
             return admin_menu()
