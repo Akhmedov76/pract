@@ -1,4 +1,4 @@
-
+from common import register, login, log_out
 
 
 def show_auth_menu():
@@ -11,10 +11,20 @@ def show_auth_menu():
     try:
         user_input = input("Enter your choice: ")
         if user_input == "1":
-           pass
+            if register():
+                show_auth_menu()
+            else:
+                return show_auth_menu()
+        elif user_input == "2":
+            if login():
+                show_auth_menu()
+            else:
+                print("Error")
+                show_auth_menu()
         elif user_input == "3":
-            print("\nThakns for wisit")
-            return
+            if log_out():
+                print("Goodbye!")
+                exit()
         else:
             print("\nWrong choice !")
             return show_auth_menu()
@@ -40,7 +50,7 @@ def show_menu():
             return show_menu()
     except KeyboardInterrupt:
         return show_menu()
-    
+
 
 def admin_menu():
     text = """
@@ -63,4 +73,4 @@ def admin_menu():
 
 
 if __name__ == "__main__":
-   show_auth_menu()
+    show_auth_menu()
