@@ -1,7 +1,8 @@
 from pract.users.common import register, login, log_out
-from pract.users.logs import log_settings
+from pract.users.logs import log_settings, log_decorator
 
 
+@log_decorator
 def show_auth_menu():
     text = """
     1. Register 
@@ -53,11 +54,13 @@ def show_menu():
         return show_menu()
 
 
+@log_decorator
 def admin_menu():
     text = """
     1. Add type of waters
     2. Show all users  
-    3. Quit
+    3. Show all order
+    4. Quit
 """
     print(text)
     try:
@@ -67,6 +70,8 @@ def admin_menu():
         elif user_input == "2":
             pass
         elif user_input == "3":
+            pass
+        elif user_input == "4":
             print("\nThakns for wisit")
             exit()
         else:

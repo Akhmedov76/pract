@@ -27,3 +27,4 @@ class JsonManager:
 
 
 users_manager = JsonManager("datas/users.json")
+water_manager = JsonManager("datas/water.json")
