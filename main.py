@@ -1,4 +1,5 @@
-from pract.users.common import register, login, log_out
+from pract.users.admin import add_water
+from pract.users.common import register, login, log_out, UserTypes
 from pract.users.logs import log_settings, log_decorator
 
 
@@ -10,31 +11,35 @@ def show_auth_menu():
     3. Quit
 """
     print(text)
-    try:
-        user_input = input("Enter your choice: ")
-        if user_input == "1":
-            if register():
-                show_auth_menu()
-            else:
-                return show_auth_menu()
-        elif user_input == "2":
-            if login():
-                show_auth_menu()
-            else:
-                print("Error")
-                show_auth_menu()
-        elif user_input == "3":
-            if log_out():
-                print("Goodbye!")
-                exit()
+    user_input = input("Enter your choice: ")
+    if user_input == "1":
+        if register():
+            show_auth_menu()
+    elif user_input == "2":
+        user = login()
+        if not user:
+            print("Invalid username and password. Please try again.")
+            show_auth_menu()
+        elif user['user_type'] == UserTypes.ADMIN.value:
+            admin_menu()
+        elif user['user_type'] == UserTypes.USER.value:
+            show_user_menu()
         else:
-            print("\nWrong choice !")
-            return show_auth_menu()
-    except KeyboardInterrupt:
-        return show_auth_menu()
+            print("Invalid credentials!")
+            show_auth_menu()
+    elif user_input == "3":
+        if log_out():
+            print("Goodbye!")
+            exit()
+        else:
+            print("Logout canceled!😊")
+            show_auth_menu()
+    else:
+        print("Invalid input. Please try again.")
+        show_auth_menu()
 
 
-def show_menu():
+def show_user_menu():
     text = """
     1. Show type of waters
     2. Show my balance  
@@ -51,7 +56,7 @@ def show_menu():
             print("\nThakns for wisit")
             exit()
     except KeyboardInterrupt:
-        return show_menu()
+        return show_auth_menu()
 
 
 @log_decorator
@@ -66,7 +71,11 @@ def admin_menu():
     try:
         user_input = input("Enter your choice: ")
         if user_input == "1":
-            pass
+            if add_water():
+                admin_menu()
+            else:
+                print("Error")
+                admin_menu()
         elif user_input == "2":
             pass
         elif user_input == "3":

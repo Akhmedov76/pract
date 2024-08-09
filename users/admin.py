@@ -3,19 +3,25 @@
     2. Show all users
     3. Quit
 """
+from pract.file_manager import water_manager
 
 
 class Admin:
-    def __init__(self, count, price):
-        self.count = count
+    def __init__(self, begin, end, price):
+        self.begin = begin
+        self.end = end
         self.price = price
-        self.users = []
 
 
 def add_water():
-    water_type = input("Enter water type: ")
-    count = int(input("Enter count: "))
-    price = float(input("Enter price: "))
-    admin = Admin(count, price)
-    admin.users.append({"water_type": water_type, "count": count, "price": price})
-    print("Water added successfully!")
+    try:
+        begin = int(input("Enter water start number: "))
+        end = int(input("Enter water end number: "))
+        price = float(input("Enter price: "))
+        water = Admin(begin, end, price)
+        water_manager.add_data(water.__dict__)
+        print("Water added successfully!")
+        return True
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return False
