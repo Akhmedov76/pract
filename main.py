@@ -1,4 +1,5 @@
 from pract.users.common import register, login, log_out
+from pract.users.logs import log_settings
 
 
 def show_auth_menu():
@@ -76,4 +77,5 @@ def admin_menu():
 
 
 if __name__ == "__main__":
+    log_settings()
     show_auth_menu()
