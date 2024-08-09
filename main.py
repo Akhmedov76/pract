@@ -1,4 +1,4 @@
-from common import register, login, log_out
+from pract.users.common import register, login, log_out
 
 
 def show_auth_menu():
