@@ -1,4 +1,4 @@
-from pract.users.admin import add_water, show_all_users
+from pract.users.admin import add_water, show_all_users, delete_water, edit_water
 from pract.users.common import register, login, log_out, UserTypes
 from pract.users.logs import log_settings, log_decorator
 
@@ -71,17 +71,9 @@ def admin_menu():
     try:
         user_input = input("Enter your choice: ")
         if user_input == "1":
-            if add_water():
-                admin_menu()
-            else:
-                print("Error")
-                admin_menu()
+            show_admin_waters()
         elif user_input == "2":
-            if show_all_users():
-                admin_menu()
-            else:
-                print("Error")
-                admin_menu()
+            pass
         elif user_input == "3":
             pass
         elif user_input == "4":
@@ -110,11 +102,23 @@ def show_admin_waters():
             print("Invalid credentials!")
             show_admin_waters()
     elif choice == "2":
-        pass
+        if edit_water():
+            show_admin_waters()
+        else:
+            print("Invalid credentials!")
+            show_admin_waters()
     elif choice == "3":
-        pass
+        if delete_water():
+            show_admin_waters()
+        else:
+            print("Invalid credentials!")
+            show_admin_waters()
     elif choice == "4":
-        pass
+        if show_all_users():
+            show_admin_waters()
+        else:
+            print("Invalid credentials!")
+            show_admin_waters()
     elif choice == "5":
         print("Exit successfully!")
         return show_auth_menu()
