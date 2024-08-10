@@ -94,6 +94,35 @@ def admin_menu():
         return admin_menu()
 
 
+def show_admin_waters():
+    print("""
+1. Add waters
+2. Edit waters
+3. Delete waters
+4. Show all waters menu
+5. Exit    
+""")
+    choice = input("Enter your choice: ")
+    if choice == "1":
+        if add_water():
+            show_admin_waters()
+        else:
+            print("Invalid credentials!")
+            show_admin_waters()
+    elif choice == "2":
+        pass
+    elif choice == "3":
+        pass
+    elif choice == "4":
+        pass
+    elif choice == "5":
+        print("Exit successfully!")
+        return show_auth_menu()
+    else:
+        print("\nWrong choice !")
+        return admin_menu()
+
+
 if __name__ == "__main__":
     log_settings()
     show_auth_menu()

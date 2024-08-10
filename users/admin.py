@@ -1,8 +1,4 @@
-"""
-    1. Add type of waters
-    2. Show all users
-    3. Quit
-"""
+
 from pract.file_manager import water_manager, users_manager
 
 
@@ -37,3 +33,5 @@ def show_all_users():
     except Exception as e:
         print(f"An error occurred: {e}")
         return False
+
+
