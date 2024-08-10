@@ -1,4 +1,4 @@
-from pract.users.admin import add_water
+from pract.users.admin import add_water, show_all_users
 from pract.users.common import register, login, log_out, UserTypes
 from pract.users.logs import log_settings, log_decorator
 
@@ -43,7 +43,7 @@ def show_user_menu():
     text = """
     1. Show type of waters
     2. Show my balance  
-    3. Quit
+    3. Exit
 """
     print(text)
     try:
@@ -53,8 +53,8 @@ def show_user_menu():
         elif user_input == "2":
             pass
         elif user_input == "3":
-            print("\nThakns for wisit")
-            exit()
+            print("Exit successfully!")
+            return show_auth_menu()
     except KeyboardInterrupt:
         return show_auth_menu()
 
@@ -77,12 +77,16 @@ def admin_menu():
                 print("Error")
                 admin_menu()
         elif user_input == "2":
-            pass
+            if show_all_users():
+                admin_menu()
+            else:
+                print("Error")
+                admin_menu()
         elif user_input == "3":
             pass
         elif user_input == "4":
-            print("\nThakns for wisit")
-            exit()
+            print("Exit successfully!")
+            return show_auth_menu()
         else:
             print("\nWrong choice !")
             return admin_menu()
