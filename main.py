@@ -1,5 +1,5 @@
-from pract.users.common import register, login, log_out
-from pract.users.logs import log_settings
+from users.common import register, login, log_out
+from users.logs import log_settings
 
 
 def show_auth_menu():
