@@ -1,9 +1,16 @@
 [
-  {
-    "id": 14,
-    "begin": 1,
-    "end": 10,
-    "comment": "150000",
-    "price": 150000
-  }
+    {
+        "id": 57,
+        "begin": 1,
+        "end": 9,
+        "comment": "Belgilangan miqdordagi summa",
+        "price": 180000
+    },
+    {
+        "id": 29,
+        "begin": 10,
+        "end": 19,
+        "comment": "Belgilangan miqdordagi summa",
+        "price": 340000
+    }
 ]

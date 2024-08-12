@@ -61,6 +61,22 @@ def delete_water():
         return False
 
 
+def show_all_waters():
+    try:
+        datas = water_manager.read()
+        if datas:
+            num = 0
+            for water in datas:
+                num += 1
+                print(
+                    f"{num}. {water['begin']}-{water['end']} {water['comment']} Price: "
+                    f"{water['price']}")
+        return True
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return False
+
+
 def show_all_users():
     try:
         users = users_manager.read()
