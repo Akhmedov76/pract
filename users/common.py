@@ -1,8 +1,8 @@
 import hashlib
 from datetime import datetime
 from enum import Enum
-from pract.file_manager import users_manager
-from pract.users.logs import log_decorator
+from file_manager import users_manager
+from users.logs import log_decorator
 
 Admin_login = "Admin"
 Admin_password = "admin"

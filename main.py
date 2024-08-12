@@ -1,7 +1,6 @@
-from pract.users.admin import add_water, show_all_users, delete_water, edit_water
-from pract.users.common import register, login, log_out, UserTypes
-from pract.users.logs import log_settings, log_decorator
-
+from users.admin import add_water, show_all_users, delete_water, edit_water
+from users.common import register, login, log_out, UserTypes
+from users.logs import log_settings, log_decorator
 
 
 @log_decorator
