@@ -1,6 +1,7 @@
 from users.admin import add_water, show_all_users, delete_water, edit_water
-from users.common import register, login, log_out, UserTypes
+from users.common import register, login, log_out, UserTypes, logout
 from users.logs import log_settings, log_decorator
+from users.user import User
 
 
 @log_decorator
@@ -39,24 +40,41 @@ def show_auth_menu():
         show_auth_menu()
 
 
+@log_decorator
 def show_user_menu():
-    text = """
-    1. Show type of waters
-    2. Show my balance  
-    3. Exit
-"""
+    text = '''
+1. Add product to balance
+2. History balance
+3. History product
+4. Buy product  # Buy product bitmagan
+5. Logout
+    '''
     print(text)
     try:
-        user_input = input("Enter your choice: ")
-        if user_input == "1":
-            pass
-        elif user_input == "2":
-            pass
-        elif user_input == "3":
-            print("Exit successfully!")
-            return show_auth_menu()
-    except KeyboardInterrupt:
-        return show_auth_menu()
+        user_menu = (input("Choose menu number: "))
+        user = User()
+        if user_menu == "1":
+            user.add_balance()
+            show_user_menu()
+        elif user_menu == "2":
+            user.history_balance()
+            show_user_menu()
+        elif user_menu == "3":
+            user.history_product()
+            show_user_menu()
+        elif user_menu == "4":
+            user.buy_product()
+            show_user_menu()
+        elif user_menu == "5":
+            logout()
+            print("Logout Successful")
+            show_auth_menu()
+        else:
+            print("Wrong menu number")
+            show_user_menu()
+    except ValueError:
+        print("Wrong menu number")
+        show_user_menu()
 
 
 @log_decorator

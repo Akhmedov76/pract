@@ -118,3 +118,15 @@ Are you sure you want to exit😱? Yes or No
     except Exception as e:
         print(f"An error occurred: {str(e)}")
         return False
+
+
+@log_decorator
+def logout(self) -> bool:
+        try:
+            all_users: list = users_manager.read()
+            for user in all_users:
+                user['is_login'] = False
+            users_manager.write(all_users)
+            return True
+        except ValueError:
+            return True

@@ -1,6 +1,6 @@
 import os
 import json
-
+import random
 
 class JsonManager:
     def __init__(self, file_name):
@@ -26,5 +26,31 @@ class JsonManager:
         return "Data added successfully"
 
 
-users_manager = JsonManager("datas/users.json")
-water_manager = JsonManager("datas/water.json")
+    def get_active_user(self):
+        all_users: list = self.read()
+        try:
+            for user in all_users:
+                if user['is_login']:
+                    return user
+            return False
+        except Exception as e:
+            print(f'Error: {e}')
+            return False
+
+
+    def random_id(self):
+        try:
+            all_data: list = self.read()
+            while True:
+                random_number: int = random.randint(1, 9999)
+                for data in all_data:
+                    if data['id'] == random_number:
+                        break
+                return random_number
+        except Exception as e:
+            print(f'Error asad: {e}')
+            return False
+
+users_manager = JsonManager("pract/datas/users.json")
+balance_manager = JsonManager("pract/datas/water.json")
+water_manager = JsonManager("pract/datas/water.json")
