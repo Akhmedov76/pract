@@ -51,6 +51,7 @@ class JsonManager:
             print(f'Error asad: {e}')
             return False
 
-users_manager = JsonManager("pract/datas/users.json")
+
 balance_manager = JsonManager("pract/datas/water.json")
+users_manager = JsonManager("pract/datas/users.json")
 water_manager = JsonManager("pract/datas/water.json")

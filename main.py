@@ -21,9 +21,9 @@ def show_auth_menu():
         if not user:
             print("Invalid username and password. Please try again.")
             show_auth_menu()
-        elif user['user_type'] == UserTypes.ADMIN.value:
+        elif user["user_type"] == UserTypes.ADMIN.value:
             admin_menu()
-        elif user['user_type'] == UserTypes.USER.value:
+        elif user["user_type"] == UserTypes.USER.value:
             show_user_menu()
         else:
             print("Invalid credentials!")
@@ -105,13 +105,15 @@ def admin_menu():
 
 
 def show_admin_waters():
-    print("""
+    print(
+        """
 1. Add waters
 2. Edit waters
 3. Delete waters
 4. Show all waters menu
 5. Exit    
-""")
+"""
+    )
     choice = input("Enter your choice: ")
     if choice == "1":
         if add_water():
