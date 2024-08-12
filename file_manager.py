@@ -26,5 +26,5 @@ class JsonManager:
         return "Data added successfully"
 
 
-users_manager = JsonManager("datas/users.json")
-water_manager = JsonManager("datas/water.json")
+users_manager = JsonManager("pract/datas/users.json")
+water_manager = JsonManager("pract/datas/water.json")

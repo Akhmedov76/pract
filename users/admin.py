@@ -1,6 +1,6 @@
 import random
 
-from pract.file_manager import water_manager, users_manager
+from file_manager import water_manager, users_manager
 
 
 class Admin:
